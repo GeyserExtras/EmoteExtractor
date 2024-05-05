@@ -1,0 +1,8 @@
+{
+  "name": "emoteextractor",
+  "version": "1.0.0",
+  "description": "A Node.js application that extracts emote metadata from Minecraft: Bedrock Editions Cache.",
+  "main": "index.js",
+  "author": "LetsGoAway",
+  "license": "ISC"
+}
