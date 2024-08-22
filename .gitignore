@@ -1,0 +1,5 @@
+build/*
+logs/*
+.vscode/*
+.mcattributes
+*.blob
