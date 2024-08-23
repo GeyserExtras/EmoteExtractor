@@ -11,6 +11,8 @@
         "name": "Clapping",
         "message": "@ is &Clapping&.",
         "specialmessage": "@: Congratulations!",
+        "creator": "Minecraft",
+        "price": 0,
         "rarity": "common"
     },
     "ce5c0300-7f03-455d-aaf1-352e4927b54d": {
@@ -18,6 +20,7 @@
         "message": "@ is pointing &over there&!",
         "specialmessage": "@: This isn't working... CREEPER!",
         "creator": "Minecraft",
+        "price": 0,
         "rarity": "common"
     },
     "4c8ae710-df2e-47cd-814d-cc7bf21a3d67": {
@@ -25,6 +28,7 @@
         "message": "@ is &Waving&.",
         "specialmessage": "@'s arm is tired from so much Waving.",
         "creator": "Minecraft",
+        "price": 0,
         "rarity": "common"
     }
 }

@@ -126,9 +126,9 @@ export default class EmoteExtractor {
             name: "Clapping",
             message: "@ is &Clapping&.",
             specialmessage: "@: Congratulations!",
-            creator: undefined,
+            creator: "Minecraft",
             thumbnail: undefined,
-            price: undefined,
+            price: 0,
             rarity: "common"
         }, lang);
         this.tryAddEmote("ce5c0300-7f03-455d-aaf1-352e4927b54d", {
@@ -137,7 +137,7 @@ export default class EmoteExtractor {
             specialmessage: "@: This isn't working... CREEPER!",
             creator: "Minecraft",
             thumbnail: undefined,
-            price: undefined,
+            price: 0,
             rarity: "common"
         }, lang);
         this.tryAddEmote("4c8ae710-df2e-47cd-814d-cc7bf21a3d67", {
@@ -146,7 +146,7 @@ export default class EmoteExtractor {
             specialmessage: "@'s arm is tired from so much Waving.",
             creator: "Minecraft",
             thumbnail: undefined,
-            price: undefined,
+            price: 0,
             rarity: "common"
         }, lang);
     }
