@@ -3,3 +3,8 @@ logs/*
 .vscode/*
 .mcattributes
 *.blob
+
+# this can contain personal info like xbox token and possibly tokens for other apps, so best we dont upload it to the internet!
+*.har
+
+node_modules/*

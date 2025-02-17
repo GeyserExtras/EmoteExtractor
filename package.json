@@ -6,6 +6,10 @@
   "author": "LetsGoAway",
   "license": "MIT",
   "dependencies": {
-    "emoteextractor": "file:"
+    "emoteextractor": "file:",
+    "typescript": "^5.7.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.13.4"
   }
 }
