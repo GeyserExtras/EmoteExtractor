@@ -2,6 +2,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { Emote } from './Emote';
 import PersonaMessageExtractor from './PersonaMessageExtractor';
+import HttpArchiveDataExtractor from './HttpArchiveDataExtractor';
 
 export default class EmoteExtractor {
     static logHistory: string = "";
@@ -38,6 +39,7 @@ export default class EmoteExtractor {
         "tr_TR",
         "uk_UA"
     ];
+
     public static start() {
         this.LANGUAGES.forEach((lang) => {
             this.emotesprevsize.set(lang, 0);
@@ -56,10 +58,74 @@ export default class EmoteExtractor {
             }
         });
         this.addEnglishDefaults("en_US")
-        this.addEnglishDefaults("en_GB")
         PersonaMessageExtractor.read();
+        this.readHar();
         this.saveEmotes();
     }
+
+
+    static readHar() {
+        if (!fs.existsSync('httparchive.har')) {
+            console.warn("Note: You can provide a httparchive.har file to get more emote data.");
+            return;
+        }
+        const extractor = new HttpArchiveDataExtractor('httparchive.har');
+        extractor.getEntriesByHostname("store-secondary.mktpl.minecraft-services.net").forEach(entry => {
+            try {
+                if (entry.request.url.includes("pages/DressingRoom_Emotes")) {
+                    JSON.parse(entry.response.content.text + "").result.rows.forEach((row: any) => {
+                        if (row.controlId == "GridList") {
+                            row.components.forEach((component: any) => {
+                                if (Object.keys(component).includes("items")) {
+                                    component.items.forEach((item: any) => {
+                                        parseMarketplaceData(item);
+                                    });
+                                }
+                            });
+                        }
+                    });
+                }
+            } catch (error) {
+                // Ignore invalid JSON or if the entry is not a JSON file
+            }
+        });
+        extractor.getEntriesByHostname("store-secondary.mktpl.minecraft-services.net").forEach(entry => {
+            try {
+                if (entry.request.url.includes("layout/items")) {
+                    JSON.parse(entry.response.content.text + "").result.forEach((item: any) => {
+                        parseMarketplaceData(item);
+                    });
+                }
+            } catch (error) {
+                // Ignore invalid JSON or if the entry is not a JSON file
+            }
+        });
+
+        function parseMarketplaceData(item: any) {
+            let uuid: string;
+            let emote: Emote = {
+                name: "",
+                message: undefined,
+                specialmessage: undefined,
+                creator: undefined,
+                thumbnail: undefined,
+                price: undefined,
+                rarity: undefined
+            };
+            if (item.pieceType == "persona_emote") {
+                uuid = item.packIdentity[0].uuid;
+                emote.name = item.title;
+                emote.creator = item.creatorName;
+                if (item.images[0].type == "Thumbnail") {
+                    emote.thumbnail = item.images[0].url;
+                }
+                emote.price = item.price.listPrice;
+                emote.rarity = item.rarity;
+                EmoteExtractor.tryAddEmote(uuid, emote, "en_US");
+            }
+        }
+    }
+
     static saveEmotes() {
         let newDataFound = false;
         if (!fs.existsSync(`emotes/`)) {
@@ -67,12 +133,17 @@ export default class EmoteExtractor {
         }
         let totalsize: number = 0;
         let newEmotesFound: number = 0;
+        let extendedDetails:number = 0;
         EmoteExtractor.emotes.forEach((map, lang) => {
             totalsize += map.size;
             if (map.size != 0) {
                 let jsonObj: any = {};
+
                 map.forEach((data, uuid) => {
                     jsonObj[uuid] = data;
+                    if (data.thumbnail != undefined) {
+                        extendedDetails++;
+                    }
                 })
                 fs.writeFileSync(`emotes/${lang}.json`, JSON.stringify(jsonObj));
                 let lastSize = EmoteExtractor.emotesprevsize.get(lang);
@@ -90,6 +161,8 @@ export default class EmoteExtractor {
             }
         });
         this.log("Amount of emote data saved across all languages: " + totalsize);
+        this.log("Amount of emote data with extended details (thumbnails, price, creator): " + extendedDetails + `(${extendedDetails/totalsize*100}%)`);
+
         if (newDataFound) {
             this.log(`~~~~~~~~~ɢᴇʏsᴇʀᴇxᴛʀᴀs ᴇᴍᴏᴛᴇᴇxᴛʀᴀᴄᴛᴏʀ~~~~~~~~~`)
             this.log(`${newEmotesFound} new emote texts were found and successfully added! Please contribute by making a PR with your new data.`)

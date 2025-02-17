@@ -8,15 +8,10 @@ If you have Minecraft: Bedrock Edition and are experienced with how to make PR's
 
 It will automatically append all new emote data and translations you have on your device to the JSON files in the repository, and will help make it available for all plugins to use.
 
-
-### Using EmoteExtractor.exe (Windows)
-Clone the repository, and double click the exe to run it. 
-
-If Minecraft: Bedrock Edition is on your Windows PC, it should run and extract the data.
-
 ### Using node.js
 Run `npx tsc` to build, then run `node build/index.js` to run.
 
-# 
+### Using a HAR file to rip data
+todo 
 
 If the console prints out `## new emote texts were found and successfully added! Please contribute by making a PR with your new data.` then new data was found!
