@@ -47,17 +47,32 @@
     "d40b905d-d32e-6485-4617-5bd993460b77": {
         "name": "Rocket Leap",
         "message": "@ is doing a &Rocket Leap&",
-        "specialmessage": "@ is so happy they could fly! (&Rocket Leap&)"
+        "specialmessage": "@ is so happy they could fly! (&Rocket Leap&)",
+        "creator": "inPixel",
+        "thumbnail": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/9be04d0b-09a0-4f49-a42e-71f5ce5b8cf9/rocket_leap_thumbnail_0.png",
+        "price": 310,
+        "rarity": "uncommon",
+        "primary": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/fe256cc0-f14c-4a7d-a05b-178c4fdaca63/primary.zip"
     },
     "c5ea5554-b6fd-eec2-8474-4d53cc990814": {
         "name": "Spinning",
         "message": "@ started the &Spinning&",
-        "specialmessage": "@ is getting dizzy! (&Spinning&)"
+        "specialmessage": "@ is getting dizzy! (&Spinning&)",
+        "creator": "AquaStudio",
+        "thumbnail": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/dd661c1e-a6c3-40a3-a33c-c8ebee2e85c8/spinning_thumbnail_0.png",
+        "price": 160,
+        "rarity": "common",
+        "primary": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/3c972b49-c3f1-4b24-9648-94b8be2a5f6f/primary.zip"
     },
     "73d8639d-47f4-e752-3eb4-208476ac327c": {
         "name": "Take the L",
         "message": "Take the L!",
-        "specialmessage": "@ dances on your grave."
+        "specialmessage": "@ dances on your grave.",
+        "creator": "Panascais",
+        "thumbnail": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/7e15ddd0-c7e1-41e7-b862-73505b472aa3/em_take_the_l_thumbnail_0.png",
+        "price": 660,
+        "rarity": "rare",
+        "primary": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/0acd6ae1-cb4d-4c79-b336-d6b89862793f/primary.zip"
     },
     "c9ec1072-0824-8008-6550-a8bcf5a8a945": {
         "name": "anime_run",
@@ -1128,7 +1143,12 @@
     "45941813-d36e-65a7-f524-9c4391d6d74d": {
         "name": "UwU",
         "message": "@ is a little bit &shy& right now.",
-        "specialmessage": "@ is embarrassed..."
+        "specialmessage": "@ is embarrassed...",
+        "creator": "Float Studios",
+        "thumbnail": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/7ca8e142-71bc-4cda-ad3a-1cf72124fc2f/em_floatstudios_uwu_thumbnail_0.png",
+        "price": 310,
+        "rarity": "uncommon",
+        "primary": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/d414c6f9-52dd-4c0f-aede-5578318b1bc9/primary.zip"
     },
     "1690ba91-2201-6817-44c0-6187f44dab78": {
         "name": "Showcase Item",
