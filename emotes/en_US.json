@@ -92,7 +92,12 @@
     "7858f8b0-c91d-c16b-5aa9-629bd4d4ca30": {
         "name": "Inflatable Tube Man",
         "message": "@ is an &inflatable tube man&.",
-        "specialmessage": "@ lacks some bones. (&Inflatable tube man&)"
+        "specialmessage": "@ lacks some bones. (&Inflatable tube man&)",
+        "creator": "Pixel Smile Studios",
+        "thumbnail": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/241f55f9-cdc8-4bbc-9aa4-850f81566959/inflatable_tube_man_thumbnail_0.png",
+        "price": 310,
+        "rarity": "uncommon",
+        "primary": "https://xforgeassets001.xboxlive.com/pf-namespace-b63a0803d3653643/1dfdaa17-7023-4645-97db-e1f0a52bb6d7/primary.zip"
     },
     "563e7419-5b8f-68d8-1b0c-48448a2d9d6d": {
         "name": "bow",
@@ -153,7 +158,7 @@
         "specialmessage": "@ is showing their skills with a &Fast Dance&!"
     },
     "6b025b2d-4650-28d2-2723-70da1ec1e80c": {
-        "name": "L Dance",
+        "name": "L-Dance",
         "message": "@ is doing the &L-Dance&!",
         "specialmessage": "Someone is taking an L from @!",
         "creator": "XP GAMES",
@@ -665,7 +670,7 @@
         "specialmessage": "@ is walking... In space?!?"
     },
     "0d87ca2e-c8bd-5f3a-4ff0-57825fd1953e": {
-        "name": "Dodge",
+        "name": "The Dodge",
         "message": "@ is doing the &Dodge&!",
         "specialmessage": "@ dodges everything!",
         "creator": "Blockworks",
@@ -748,7 +753,7 @@
         "specialmessage": "@ went into the skies by doing an Air Punch!"
     },
     "65afefb8-8406-762f-9f2c-73f500268fd9": {
-        "name": "Flux",
+        "name": "The Flux",
         "message": "@ is doing the &Flux&!",
         "specialmessage": "@ shows off their best dance move!",
         "creator": "Blockworks",
@@ -1136,7 +1141,7 @@
         "specialmessage": "@ just picked some flowers and is doing a &Flower Dance&!"
     },
     "d7519b5a-45ec-4d27-997c-89d402c6b57f": {
-        "name": "The Pickaxe",
+        "name": "Mining",
         "message": "@ is &Mining& air.",
         "specialmessage": "@ received (1) Air Block from &Mining.&",
         "creator": "Minecraft",
@@ -2119,7 +2124,7 @@
         "specialmessage": "@ is hiding! &Can't See Me&!"
     },
     "949c4f24-6aa6-4f2a-bad5-1b3de7e12749": {
-        "name": "Flying Like Peter Pan",
+        "name": "Peter Pan Floating",
         "message": "@ can fly! &(Peter Pan Floating)&",
         "specialmessage": "@:Think happy thoughts. &(Peter Pan Floating)&",
         "creator": "Minecraft",
@@ -2128,7 +2133,7 @@
         "rarity": "rare"
     },
     "f15ceb56-6651-41c0-8bd5-087951204d81": {
-        "name": "Dancing Like Rapunzel",
+        "name": "Rapunzel Dance",
         "message": "@ is doing the &Rapunzel Dance.&",
         "specialmessage": "When will your life begin? When you hit respawn! &(Repunzle Dance)&",
         "creator": "Minecraft",
@@ -2151,7 +2156,7 @@
         "rarity": "uncommon"
     },
     "71afa8ed-03b6-4808-b537-330daf9dbf50": {
-        "name": "Hakuna Matata",
+        "name": "Hakuna Matata Dance",
         "message": "@:&Hakuna Matata&...",
         "specialmessage": "@: It means no worries, for the rest of your days. &(Hakuna Matata Dance)&",
         "creator": "Minecraft",
@@ -2293,7 +2298,7 @@
         "specialmessage": "@ hurt their face with their own hand!"
     },
     "cd8c3bc6-f455-43d2-836e-62c1a19474c7": {
-        "name": "Sonic-Victory Spinning",
+        "name": "Sonic the Hedgehog",
         "message": "@ is &Victory Spinning.&",
         "specialmessage": "@ Zone Complete! &(Victory Spinning)&",
         "creator": "Minecraft",
@@ -2330,7 +2335,7 @@
         "rarity": "uncommon"
     },
     "8d649a9b-59fb-9534-9dea-3e339b0174bc": {
-        "name": "Lockdown Shuffle",
+        "name": "Lock Down Shuffle",
         "message": "@ is rotating quickly doing the &Lock Down Shuffle&!",
         "specialmessage": "Is @ trying to T-Spin into place? That's the &Lock Down Shuffle&!",
         "creator": "Minecraft",
@@ -2521,7 +2526,7 @@
         "specialmessage": "@ could also be a megalodon!"
     },
     "c2d6091d-9f91-4a9e-badd-ef8481353cb0": {
-        "name": "Waving Like C-3PO",
+        "name": "C-3PO Wave",
         "message": "@ does a &C3PO Wave.&",
         "specialmessage": "I am @, player-villager relations. &(C3PO Wave)&",
         "creator": "Minecraft",
@@ -2549,7 +2554,7 @@
         "specialmessage": "@ receives grand applause! (&Bow&)"
     },
     "ac674580-0265-ad54-8208-e3a560474143": {
-        "name": "Tetris® Dance",
+        "name": "T E T R I S",
         "message": "@ loves &T E T R I S&!",
         "specialmessage": "What precision, what beauty... @ is doing the &T E T R I S&!",
         "creator": "Minecraft",
@@ -2625,7 +2630,7 @@
         "specialmessage": "@ is having a dance party with &Dynamite&!"
     },
     "4b9b9f17-3722-4d38-a6a9-9ba0e8cf5044": {
-        "name": "Using Jedi Mind Trick",
+        "name": "Obi-Wan’s Mind Trick",
         "message": "@ These aren't the mobs you're looking for. &(Obi-Wan's Mind Trick)&",
         "specialmessage": "@: I didn't look you in the eyes. I can go about my business. &(Obi-Wan's Mind Trick)&",
         "creator": "Minecraft",
@@ -2823,7 +2828,7 @@
         "specialmessage": "@ is growing uncertain! (&Shrug&)"
     },
     "efc2f0f5-af00-4d9e-a4b1-78f18d63be79": {
-        "name": "Fake Death",
+        "name": "Playing Dead",
         "message": "@ is &Playing Dead.&",
         "specialmessage": "@: Stop telling them! It really RUINS the effect if they know I’m just &Playing Dead.&",
         "creator": "Minecraft",
@@ -2866,7 +2871,7 @@
         "specialmessage": "@ is spinning right round (and failed)"
     },
     "ddfa6f0e-88ca-46de-b189-2bd5b18e96a0": {
-        "name": "Bow",
+        "name": "Bowing",
         "message": "@ is &Bowing.&",
         "specialmessage": "@: My thanks are deeper than bedrock. &(Bowing)&",
         "creator": "Minecraft",
@@ -3360,7 +3365,7 @@
         "rarity": "rare"
     },
     "9c8a03bd-98a7-8b86-7cc4-e89187b537f0": {
-        "name": "DJ mixing",
+        "name": "DJ party",
         "message": "@ is being a DJ",
         "specialmessage": "@ is vibing with the music!",
         "creator": "Pixels & Blocks",
@@ -3646,7 +3651,7 @@
         "rarity": "rare"
     },
     "82fd6b58-b8b1-acba-870b-2dd16bb41435": {
-        "name": "Successful Hunt!",
+        "name": "Successful hunt!",
         "message": "&A successful hunt!&",
         "specialmessage": "&Eywa will always provide!&",
         "creator": "Gamemode One",
@@ -3655,7 +3660,7 @@
         "rarity": "rare"
     },
     "c3cbc0ce-8318-d087-aa5f-07038a735bd3": {
-        "name": "I See You",
+        "name": "I see you",
         "message": "&Friend, I see you!&",
         "specialmessage": "&Eywa has heard you!&",
         "creator": "Gamemode One",
@@ -3691,7 +3696,7 @@
         "rarity": "uncommon"
     },
     "6c7717bd-a686-5a15-f8ed-2c07ee6f913d": {
-        "name": "Go To Sleep",
+        "name": "Go to Sleep",
         "message": "@ is heading to sleep!",
         "specialmessage": "@ is feeling sleepy!",
         "creator": "CodeStudios",
@@ -5995,6 +6000,8 @@
     },
     "653c913f-d72c-c340-d1e8-764ba4cd579d": {
         "name": "Griddy",
+        "message": "@ is doing the &Griddy&!",
+        "specialmessage": "@ is sturdy with it! (&Griddy&)",
         "creator": "ShapeStudio",
         "thumbnail": "https://xforgeassets002.xboxlive.com/pf-namespace-b63a0803d3653643/f0898bea-f679-4633-9c5c-730f5c2755c4/griddy_thumbnail_0.png",
         "price": 660,

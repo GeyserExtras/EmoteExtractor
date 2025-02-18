@@ -1,5 +1,5 @@
 import fs from 'node:fs';
-import path from 'node:path';
+import path, { parse } from 'node:path';
 import { Emote } from './Emote';
 import PersonaMessageExtractor from './PersonaMessageExtractor';
 import HttpArchiveDataExtractor from './HttpArchiveDataExtractor';
@@ -101,6 +101,16 @@ export default class EmoteExtractor {
             }
         });
 
+        extractor.getEntriesByHostname("20ca2.playfabapi.com").forEach(entry => {
+            try {
+                if (entry.request.url.includes("Catalog/GetPublishedItem")) {
+                    parsePlayfabData(JSON.parse(entry.response.content.text + ""));
+                }
+            } catch (error) {
+                // Ignore invalid JSON or if the entry is not a JSON file
+            }
+        });
+
         function parseMarketplaceData(item: any) {
             let uuid: string;
             let emote: Emote = {
@@ -110,7 +120,8 @@ export default class EmoteExtractor {
                 creator: undefined,
                 thumbnail: undefined,
                 price: undefined,
-                rarity: undefined
+                rarity: undefined,
+                primary: undefined
             };
             if (item.pieceType == "persona_emote") {
                 uuid = item.packIdentity[0].uuid;
@@ -124,6 +135,37 @@ export default class EmoteExtractor {
                 EmoteExtractor.tryAddEmote(uuid, emote, "en_US");
             }
         }
+
+        function parsePlayfabData(item: any) {
+            let uuid: string;
+            let emote: Emote = {
+                name: "",
+                message: undefined,
+                specialmessage: undefined,
+                creator: undefined,
+                thumbnail: undefined,
+                price: undefined,
+                rarity: undefined,
+                primary: undefined
+            };
+            if (item.code == 200 && item.status == "OK") {
+                let DisplayProperties = item.data.Item.DisplayProperties;
+                if (DisplayProperties.pieceType == "persona_emote"){
+                    uuid = DisplayProperties.packIdentity[0].uuid;
+                    emote.name = item.data.Item.Title.neutral;
+                    emote.creator = DisplayProperties.creatorName;
+                    if (item.data.Item.Images[0].Type == "Thumbnail") {
+                        emote.thumbnail = item.data.Item.Images[0].Url;
+                    }
+                    emote.price = DisplayProperties.price;
+                    emote.rarity = DisplayProperties.rarity;
+                    if (item.data.Item.Contents[0].Type == "personabinary") {
+                        emote.primary = item.data.Item.Contents[0].Url;
+                    }
+                    EmoteExtractor.tryAddEmote(uuid, emote, "en_US");
+                }
+            }
+        }
     }
 
     static saveEmotes() {
@@ -134,6 +176,8 @@ export default class EmoteExtractor {
         let totalsize: number = 0;
         let newEmotesFound: number = 0;
         let extendedDetails:number = 0;
+        let emotesWithDownload:number = 0;
+
         EmoteExtractor.emotes.forEach((map, lang) => {
             totalsize += map.size;
             if (map.size != 0) {
@@ -143,6 +187,9 @@ export default class EmoteExtractor {
                     jsonObj[uuid] = data;
                     if (data.thumbnail != undefined) {
                         extendedDetails++;
+                    }
+                    if (data.primary != undefined) {
+                        emotesWithDownload++;
                     }
                 })
                 fs.writeFileSync(`emotes/${lang}.json`, JSON.stringify(jsonObj));
@@ -162,6 +209,7 @@ export default class EmoteExtractor {
         });
         this.log("Amount of emote data saved across all languages: " + totalsize);
         this.log("Amount of emote data with extended details (thumbnails, price, creator): " + extendedDetails + `(${extendedDetails/totalsize*100}%)`);
+        this.log("Amount of emote data with download links (primary.zip): " + emotesWithDownload + `(${emotesWithDownload/totalsize*100}%)`);
 
         if (newDataFound) {
             this.log(`~~~~~~~~~ɢᴇʏsᴇʀᴇxᴛʀᴀs ᴇᴍᴏᴛᴇᴇxᴛʀᴀᴄᴛᴏʀ~~~~~~~~~`)
@@ -193,7 +241,8 @@ export default class EmoteExtractor {
             creator: "Minecraft",
             thumbnail: undefined,
             price: 0,
-            rarity: "common"
+            rarity: "common",
+            primary: undefined
         }, lang);
         this.tryAddEmote("9a469a61-c83b-4ba9-b507-bdbe64430582", {
             name: "Clapping",
@@ -202,7 +251,8 @@ export default class EmoteExtractor {
             creator: "Minecraft",
             thumbnail: undefined,
             price: 0,
-            rarity: "common"
+            rarity: "common",
+            primary: undefined
         }, lang);
         this.tryAddEmote("ce5c0300-7f03-455d-aaf1-352e4927b54d", {
             name: "Over There!",
@@ -211,7 +261,8 @@ export default class EmoteExtractor {
             creator: "Minecraft",
             thumbnail: undefined,
             price: 0,
-            rarity: "common"
+            rarity: "common",
+            primary: undefined
         }, lang);
         this.tryAddEmote("4c8ae710-df2e-47cd-814d-cc7bf21a3d67", {
             name: "Waving",
@@ -220,7 +271,8 @@ export default class EmoteExtractor {
             creator: "Minecraft",
             thumbnail: undefined,
             price: 0,
-            rarity: "common"
+            rarity: "common",
+            primary: undefined
         }, lang);
     }
 
@@ -245,7 +297,8 @@ export default class EmoteExtractor {
             creator: undefined,
             thumbnail: undefined,
             price: undefined,
-            rarity: undefined
+            rarity: undefined,
+            primary: undefined
         };
         mergedEmote.name = new0.name;
         mergedEmote.message = new0.message != undefined ? new0.message : old.message;
@@ -254,6 +307,7 @@ export default class EmoteExtractor {
         mergedEmote.thumbnail = new0.thumbnail != undefined ? new0.thumbnail : old.thumbnail;
         mergedEmote.price = new0.price != undefined ? new0.price : old.price;
         mergedEmote.rarity = new0.rarity != undefined ? new0.rarity : old.rarity;
+        mergedEmote.primary = new0.primary != undefined ? new0.primary : old.primary;
         return mergedEmote;
     }
 

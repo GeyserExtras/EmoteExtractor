@@ -5,5 +5,6 @@ export type Emote = {
     creator: string | undefined,
     thumbnail: string | undefined,
     price: number | undefined,
-    rarity: string | undefined
+    rarity: string | undefined,
+    primary: string | undefined,
 }
