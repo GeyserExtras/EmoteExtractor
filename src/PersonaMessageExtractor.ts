@@ -22,7 +22,8 @@ export default class PersonaMessageExtractor {
             creator: undefined,
             thumbnail: undefined,
             price: undefined,
-            rarity: undefined
+            rarity: undefined,
+            primary: undefined
         };
         let personaItemFolder = this.mcPersonaPath + "/" + folder;
         let manifest = JSON.parse(fs.readFileSync(path.resolve(this.LOCALAPPDATA, personaItemFolder + "/manifest.json"), 'utf8'));
